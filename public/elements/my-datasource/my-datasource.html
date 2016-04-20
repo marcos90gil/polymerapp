@@ -1,0 +1,50 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="my-dataspurce">
+
+	<iron-ajax
+	    auto
+	    url="http://localhost:3000/apiv1/items"
+	    params='{"alt":"json"}'
+	    handle-as="json"
+	    on-response="onResponse"
+	    debounce-duration="300">
+	</iron-ajax>
+
+	<script>
+	    (function() {
+	      'use strict';
+
+	      Polymer({
+	        is : 'my-datasource',
+
+	        properties : {
+	          elements : {
+	          	type : String,
+	          	notify : true
+	          },
+	          category : {
+	          	type : String,
+	          	notify : true
+	          },
+	          data : {
+	            type : Array,
+	            notify : true
+	          }
+	        },
+
+	        ready : function () {
+	        	console.log('On datasource');
+	        },
+
+	        onResponse : function(data) {
+				console.log('Items from back', data);	          
+	        }
+	      });
+	    })();
+  </script>
+
+</dom-module>
+
+

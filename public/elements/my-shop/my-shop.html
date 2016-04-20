@@ -13,14 +13,14 @@
       }
     </style>
 
-    <template is="dom-repeat" items="{{items}}">
-      <paper-card heading="{{items.title}}" image="{{items.image}}">
+    <template is="dom-repeat" items="[[items]]">
+      <paper-card heading="[[items.title]]" image="[[items.image]]">
         <div class="card-content">
-          {{items.body}}
+          [[items.body]]
         </div>
         <div class="card-actions">
-          <paper-button>Share</paper-button>
-          <paper-button>Explore!</paper-button>
+          <paper-button>Detail</paper-button>
+          <paper-button>Buy</paper-button>
         </div>
       </paper-card>
     </template>

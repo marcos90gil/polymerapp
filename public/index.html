@@ -175,7 +175,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h1 class="page-title" tabindex="-1">Shop</h1>
                 <p>This is the shop section</p>
-                <my-shop></my-shop>
+                <my-datasource elements="items" category="all" data="{{items}}"></my-datasource>
+                <my-shop items="[[items]]"></my-shop>
               </paper-material>
             </section>
 
