@@ -1,0 +1,24 @@
+{
+  "name": "polymerapp",
+  "version": "0.1.0",
+  "homepage": "https://github.com/marcos90gil/polymerapp",
+  "authors": "Marcos Gil <marcos_gilf@hotmail.com>",
+  "description": "Basic web components to create an e-commerce",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "./public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-elements": "PolymerElements/iron-elements#^1.0.0",
+    "neon-elements": "PolymerElements/neon-elements#^1.0.0",
+    "page": "visionmedia/page.js#~1.6.4",
+    "paper-elements": "PolymerElements/paper-elements#^1.0.1",
+    "platinum-elements": "PolymerElements/platinum-elements#^1.1.0",
+    "polymer": "Polymer/polymer#^1.2.0",
+    "moment": "^2.12.0",
+    "animate.css": "latest"
+  }
+}
