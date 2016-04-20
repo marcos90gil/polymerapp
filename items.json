@@ -2,27 +2,48 @@
 	"items": [
 		{
 			"title": "Carrot Cake",
-			"body": null
+			"body": null,
+			"categories": "1"
 		},
 		{
 			"title": "Cheese Cake",
-			"body": null	
+			"body": null,
+			"categories": "1"	
 		},
 		{
 			"title": "KitKat Cake",
-			"body": null	
+			"body": null,
+			"categories": "1"	
 		},
 		{
 			"title": "Apple Pie",
-			"body": null
+			"body": null,
+			"categories": "1"
 		},
 		{
 			"title": "Three Chocolate Cake",
-			"body": null
+			"body": null,
+			"categories": "1"
 		},
 		{
 			"title": "White Chocolate Sacher",
-			"body": null	
+			"body": null,
+			"categories": "1"	
+		},
+		{
+			"title": "Pizza",
+			"body": null,
+			"categories": "2"	
+		},
+		{
+			"title": "Spanish ommelette",
+			"body": null,
+			"categories": "2"	
+		},
+		{
+			"title": "Hambuerguer",
+			"body": null,
+			"categories": "2"	
 		}
 	]
 }

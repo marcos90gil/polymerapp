@@ -16,15 +16,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit">
-  <title>Polymer Starter Kit</title>
+  <title>Polymer e-commerce</title>
 
   <!-- Place favicon.ico in the `app/` directory -->
 
   <!-- Chrome for Android theme color -->
   <meta name="theme-color" content="#2E3AA1">
-
-  <!-- Web Application Manifest -->
-  <link rel="manifest" href="manifest.json">
 
   <!-- Tile color for Win8 -->
   <meta name="msapplication-TileColor" content="#3372DF">
@@ -82,10 +79,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Home</span>
           </a>
 
-          <a data-route="users" href="{{baseUrl}}users">
-            <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
-          </a>
+          <paper-submenu>
+            <paper-item class="menu-trigger">
+              <iron-icon icon="folder"></iron-icon>
+              <span>Shop</span>
+            </paper-item>
+            <paper-menu class="menu-content">
+              <a data-route="shop" href="{{baseUrl}}shop">
+                <paper-item>
+                  <iron-icon icon="folder-open"></iron-icon>
+                  <span>All</span>
+                </paper-item>
+              </a>
+              <a data-route="shop" href="{{baseUrl}}shop">
+                <paper-item>
+                  <iron-icon icon="folder-open"></iron-icon>
+                  <span>Category 1</span>
+                </paper-item>
+              </a>
+              <a data-route="shop" href="{{baseUrl}}shop">
+                <paper-item>
+                  <iron-icon icon="folder-open"></iron-icon>
+                  <span>Category 2</span>
+                </paper-item>
+              </a>
+              <a data-route="shop" href="{{baseUrl}}shop">
+                <paper-item>
+                  <iron-icon icon="folder-open"></iron-icon>
+                  <span>Category 3</span>
+                </paper-item>
+              </a>
+            </paper-menu>
+          </paper-submenu>  
 
           <a data-route="contact" href="{{baseUrl}}contact">
             <iron-icon icon="mail"></iron-icon>
@@ -102,18 +127,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <span class="space"></span>
 
-          <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button>
+          <!-- Toolbar icons -->         
+          <a data-route="users" href="{{baseUrl}}users" tabindex="-1">
+            <paper-icon-button icon="perm-identity"></paper-icon-button>
+          </a>
+          <a data-route="cart" href="{{baseUrl}}cart" tabindex="-1">
+            <paper-icon-button icon="shopping-cart"></paper-icon-button>
+          </a>
+          <style>
+            a paper-icon-button,
+            a:active paper-icon-button,
+            a:visited paper-icon-button {
+              color: #ffffff;
+            }
+          </style>
 
           <!-- Application name -->
           <div class="middle middle-container">
-            <div class="app-name">Polymer Starter Kit</div>
+            <div class="app-name">Polymer e-commerce</div>
           </div>
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">The future of the web today</div>
+            <div class="bottom-title">Basic web components structure made with Polymer</div>
           </div>
         </paper-toolbar>
 
@@ -133,24 +169,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <p>This is another card.</p>
               </paper-material>
+            </section>
 
+            <section data-route="shop" tabindex="-1">
               <paper-material elevation="1">
-                <h2 id="license">License</h2>
-                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
-                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
-                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-                <ul>
-                <li>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</li>
-                <li>Redistributions in binary form must reproduce the above
-                copyright notice, this list of conditions and the following disclaimer
-                in the documentation and/or other materials provided with the
-                distribution.</li>
-                <li>Neither the name of Google Inc. nor the names of its
-                contributors may be used to endorse or promote products derived from
-                this software without specific prior written permission.</li>
-                </ul>
-                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+                <h1 class="page-title" tabindex="-1">Shop</h1>
+                <p>This is the shop section</p>
+                <my-datasource elements="items" category="all" data="{{items}}"></my-datasource>
+                <my-shop items="[[items]]"></my-shop>
+              </paper-material>
+            </section>
+
+            <section data-route="cart" tabindex="-1">
+              <paper-material elevation="1">
+                <h1 class="page-title" tabindex="-1">Cart</h1>
+                <p>This is the cart section</p>
               </paper-material>
             </section>
 
@@ -180,6 +213,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
           </iron-pages>
         </div>
+
       </paper-scroll-header-panel>
     </paper-drawer-panel>
 
