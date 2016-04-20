@@ -79,10 +79,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Home</span>
           </a>
 
-          <a data-route="shop" href="{{baseUrl}}shop">
-            <iron-icon icon="social:cake"></iron-icon>
-            <span>Shop</span>
-          </a>
+          <paper-submenu>
+            <paper-item class="menu-trigger">
+              <iron-icon icon="folder"></iron-icon>
+              <span>Shop</span>
+            </paper-item>
+            <paper-menu class="menu-content">
+              <a data-route="shop" href="{{baseUrl}}shop">
+                <paper-item>
+                  <iron-icon icon="folder-open"></iron-icon>
+                  <span>All</span>
+                </paper-item>
+              </a>
+              <a data-route="shop" href="{{baseUrl}}shop">
+                <paper-item>
+                  <iron-icon icon="folder-open"></iron-icon>
+                  <span>Category 1</span>
+                </paper-item>
+              </a>
+              <a data-route="shop" href="{{baseUrl}}shop">
+                <paper-item>
+                  <iron-icon icon="folder-open"></iron-icon>
+                  <span>Category 2</span>
+                </paper-item>
+              </a>
+              <a data-route="shop" href="{{baseUrl}}shop">
+                <paper-item>
+                  <iron-icon icon="folder-open"></iron-icon>
+                  <span>Category 3</span>
+                </paper-item>
+              </a>
+            </paper-menu>
+          </paper-submenu>  
 
           <a data-route="contact" href="{{baseUrl}}contact">
             <iron-icon icon="mail"></iron-icon>
@@ -121,7 +149,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">Mi Bakery Shop</div>
+            <div class="bottom-title">Basic web components structure made with Polymer</div>
           </div>
         </paper-toolbar>
 
@@ -147,6 +175,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h1 class="page-title" tabindex="-1">Shop</h1>
                 <p>This is the shop section</p>
+                <my-shop></my-shop>
               </paper-material>
             </section>
 
@@ -183,6 +212,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
           </iron-pages>
         </div>
+
       </paper-scroll-header-panel>
     </paper-drawer-panel>
 
