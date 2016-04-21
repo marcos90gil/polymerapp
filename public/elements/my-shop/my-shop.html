@@ -40,7 +40,7 @@
           <p class="item-card-light">[[item.body]]</p>
         </div>
         <div class="card-actions">
-          <paper-button class="item-card-reserve">BUY</paper-button>
+          <paper-button on-tap="buyItem" class="item-card-reserve">BUY</paper-button>
         </div>
       </paper-card>
 
@@ -74,11 +74,13 @@
         },
 
         whenCategory : function (category, items) {
-          console.log('Shop input', 'category', category, 'items', items);
           this.validItems = (items || []).filter (function (item) {
             return  item.category === category  || category === 'all';
           });
-          console.log('Datasource output', this.validItems);
+        },
+
+        buyItem : function (e) {
+          console.log('Buy item', Polymer.dom(e).localTarget);
         }
       });
     })();
