@@ -3,47 +3,65 @@
 		{
 			"title": "Carrot Cake",
 			"body": null,
-			"categories": "1"
+			"image": "http://placehold.it/350x150/FFC107/000000",
+			"price": 30,
+			"category": "1"
 		},
 		{
 			"title": "Cheese Cake",
 			"body": null,
-			"categories": "1"	
+			"image": "http://placehold.it/350x150/FFC107/000000",
+			"price": 20,
+			"category": "1"	
 		},
 		{
 			"title": "KitKat Cake",
 			"body": null,
-			"categories": "1"	
+			"image": "http://placehold.it/350x150/FFC107/000000",
+			"price": 50,
+			"category": "1"	
 		},
 		{
 			"title": "Apple Pie",
 			"body": null,
-			"categories": "1"
+			"image": "http://placehold.it/350x150/FFC107/000000",
+			"price": 10,
+			"category": "1"
 		},
 		{
 			"title": "Three Chocolate Cake",
 			"body": null,
-			"categories": "1"
+			"image": "http://placehold.it/350x150/FFC107/000000",
+			"price": 80,
+			"category": "1"
 		},
 		{
 			"title": "White Chocolate Sacher",
 			"body": null,
-			"categories": "1"	
+			"image": "http://placehold.it/350x150/FFC107/000000",
+			"price": 25,
+			"category": "1"	
 		},
 		{
 			"title": "Pizza",
 			"body": null,
-			"categories": "2"	
+			"image": "http://placehold.it/350x150/FFC107/000000",
+			"price": 15,
+			"category": "2"	
 		},
 		{
 			"title": "Spanish ommelette",
 			"body": null,
-			"categories": "2"	
+			"image": "http://placehold.it/350x150/FFC107/000000",
+			"price": 5,
+			"category": "2"	
 		},
 		{
 			"title": "Hambuerguer",
 			"body": null,
-			"categories": "2"	
+			"image": "http://placehold.it/350x150/FFC107/000000",
+			"price": 8,
+			"category": "2"	
 		}
 	]
 }
