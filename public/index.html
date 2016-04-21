@@ -81,7 +81,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <paper-submenu>
             <paper-item class="menu-trigger">
-              <iron-icon icon="folder"></iron-icon>
+              <iron-icon icon="maps:store-mall-directory"></iron-icon>
               <span>Shop</span>
             </paper-item>
             <paper-menu class="menu-content">
@@ -91,19 +91,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <span>All</span>
                 </paper-item>
               </a>
-              <a data-route="shop" href="{{baseUrl}}shop">
+              <a data-route="shop-category" href="{{baseUrl}}shop/1">
                 <paper-item>
                   <iron-icon icon="folder-open"></iron-icon>
                   <span>Category 1</span>
                 </paper-item>
               </a>
-              <a data-route="shop" href="{{baseUrl}}shop">
+              <a data-route="shop-category" href="{{baseUrl}}shop/2">
                 <paper-item>
                   <iron-icon icon="folder-open"></iron-icon>
                   <span>Category 2</span>
                 </paper-item>
               </a>
-              <a data-route="shop" href="{{baseUrl}}shop">
+              <a data-route="shop-category" href="{{baseUrl}}shop/3">
                 <paper-item>
                   <iron-icon icon="folder-open"></iron-icon>
                   <span>Category 3</span>
@@ -129,7 +129,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Toolbar icons -->         
           <a data-route="users" href="{{baseUrl}}users" tabindex="-1">
-            <paper-icon-button icon="perm-identity"></paper-icon-button>
+            <paper-icon-button icon="social:person-outline"></paper-icon-button>
           </a>
           <a data-route="cart" href="{{baseUrl}}cart" tabindex="-1">
             <paper-icon-button icon="shopping-cart"></paper-icon-button>
@@ -152,6 +152,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <div class="bottom-title">Basic web components structure made with Polymer</div>
           </div>
         </paper-toolbar>
+        
 
         <!-- Main Content -->
         <div class="content">
@@ -165,18 +166,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
                 <p>Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
               </paper-material>
-
-              <paper-material elevation="1">
-                <p>This is another card.</p>
-              </paper-material>
             </section>
-
+            
             <section data-route="shop" tabindex="-1">
               <paper-material elevation="1">
                 <h1 class="page-title" tabindex="-1">Shop</h1>
                 <p>This is the shop section</p>
-                <my-datasource elements="items" category="all" data="{{items}}"></my-datasource>
-                <my-shop items="[[items]]"></my-shop>
+                <my-datasource data="{{items}}"></my-datasource>
+                <my-shop category="all" items="[[items]]"></my-shop>
+              </paper-material>
+            </section>
+
+            <section data-route="shop-category" tabindex="-1">
+              <paper-material elevation="1">
+                <h1 class="page-title" tabindex="-1">Shop</h1>
+                <p>This is the shop section for category {{params.category}}</p>
+                <my-shop category="{{params.category}}" items="[[items]]"></my-shop>
               </paper-material>
             </section>
 

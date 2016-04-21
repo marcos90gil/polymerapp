@@ -11,18 +11,39 @@
       span {
         @apply(--paper-font-body1);
       }
+
+      .item-card-header { @apply(--paper-font-headline); }
+      .item-card-light { color: var(--paper-grey-600); }
+      .item-card-price {
+        float: right;
+        font-size: 15px;
+        vertical-align: middle;
+      }
+      .item-card-reserve { color: var(--google-blue-500); }
+      iron-icon.star {
+        --iron-icon-width: 16px;
+        --iron-icon-height: 16px;
+        color: var(--paper-amber-500);
+      }
+      iron-icon.star:last-of-type { color: var(--paper-grey-500); }
     </style>
 
-    <template is="dom-repeat" items="[[items]]">
-      <paper-card heading="[[items.title]]" image="[[items.image]]">
+    <template is="dom-repeat" items="[[validItems]]">
+      <paper-card image="[[item.image]]">
         <div class="card-content">
-          [[items.body]]
+          <div class="item-card-header">[[item.title]]
+            <div class="item-card-price item-card-light">
+              <span>[[item.price]]$</span>
+              <iron-icon icon="maps:local-offer"></iron-icon>
+            </div>
+          </div>
+          <p class="item-card-light">[[item.body]]</p>
         </div>
         <div class="card-actions">
-          <paper-button>Detail</paper-button>
-          <paper-button>Buy</paper-button>
+          <paper-button on-tap="buyItem" class="item-card-reserve">BUY</paper-button>
         </div>
       </paper-card>
+
     </template>
 
   </template>
@@ -34,22 +55,32 @@
       Polymer({
         is: 'my-shop',
 
-        properties: {
-          items: {
+        properties : {
+          items : {
             type: Array,
-            notify: true
+          },
+          validItems : {
+            type: Array,
+          },
+          category : {
+            type : String
           }
         },
 
-        ready: function() {
-          this.items = [
-            'Responsive Web App boilerplate',
-            'Iron Elements and Paper Elements',
-            'End-to-end Build Tooling (including Vulcanize)',
-            'Unit testing with Web Component Tester',
-            'Routing with Page.js',
-            'Offline support with the Platinum Service Worker Elements'
-          ];
+        observers : ['whenCategory(category, items)'],
+       
+        ready : function () {
+
+        },
+
+        whenCategory : function (category, items) {
+          this.validItems = (items || []).filter (function (item) {
+            return  item.category === category  || category === 'all';
+          });
+        },
+
+        buyItem : function (e) {
+          console.log('Buy item', Polymer.dom(e).localTarget);
         }
       });
     })();

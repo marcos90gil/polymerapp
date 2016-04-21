@@ -1,47 +1,39 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
-<dom-module id="my-dataspurce">
+<dom-module id="my-datasource">
 
-	<iron-ajax
-	    auto
-	    url="http://localhost:3000/apiv1/items"
-	    params='{"alt":"json"}'
-	    handle-as="json"
-	    on-response="onResponse"
-	    debounce-duration="300">
-	</iron-ajax>
-
+	<template>
+		<iron-ajax
+		    auto
+		    url="http://localhost:3000/apiv1/items"
+		    handle-as="json"
+		    on-response="ajaxResponse"
+		    debounce-duration="300">
+		</iron-ajax>
+	</template>
+	
 	<script>
 	    (function() {
-	      'use strict';
+			'use strict';
+			
+			Polymer({
+				is : 'my-datasource',
 
-	      Polymer({
-	        is : 'my-datasource',
+				properties : {
+				  data : {
+				    type : Array,
+				    value : function () {
+						return [];
+					},
+				    notify : true
+				  }
+				},
 
-	        properties : {
-	          elements : {
-	          	type : String,
-	          	notify : true
-	          },
-	          category : {
-	          	type : String,
-	          	notify : true
-	          },
-	          data : {
-	            type : Array,
-	            notify : true
-	          }
-	        },
-
-	        ready : function () {
-	        	console.log('On datasource');
-	        },
-
-	        onResponse : function(data) {
-				console.log('Items from back', data);	          
-	        }
-	      });
+				ajaxResponse : function (data) {
+					this.data = data.detail.response.data;
+				}
+			});
 	    })();
   </script>
 

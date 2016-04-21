@@ -8,7 +8,9 @@ let ObjectId = Schema.ObjectId;
 let ItemSchema = new Schema({
 	title : String,
 	body : String,
-	categories : {
+	image : String,
+	price : Number,
+	category : {
 		type: String,
         enum : ['1', '2', '3']
     }
