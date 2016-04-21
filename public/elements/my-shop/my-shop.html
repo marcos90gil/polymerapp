@@ -28,7 +28,7 @@
       iron-icon.star:last-of-type { color: var(--paper-grey-500); }
     </style>
 
-    <template is="dom-repeat" items="[[items]]">
+    <template is="dom-repeat" items="[[validItems]]">
       <paper-card image="[[item.image]]">
         <div class="card-content">
           <div class="item-card-header">[[item.title]]
@@ -55,15 +55,30 @@
       Polymer({
         is: 'my-shop',
 
-        properties: {
-          items: {
+        properties : {
+          items : {
             type: Array,
-            notify: true
+          },
+          validItems : {
+            type: Array,
+          },
+          category : {
+            type : String
           }
         },
 
-        ready: function() {
+        observers : ['whenCategory(category, items)'],
+       
+        ready : function () {
 
+        },
+
+        whenCategory : function (category, items) {
+          console.log('Shop input', 'category', category, 'items', items);
+          this.validItems = (items || []).filter (function (item) {
+            return  item.category === category  || category === 'all';
+          });
+          console.log('Datasource output', this.validItems);
         }
       });
     })();

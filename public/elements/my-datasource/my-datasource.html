@@ -16,27 +16,22 @@
 	<script>
 	    (function() {
 			'use strict';
-
+			
 			Polymer({
 				is : 'my-datasource',
 
 				properties : {
-				  element : {
-				  	type : String,
-				  },
-				  category : {
-				  	type : String,
-				  },
 				  data : {
 				    type : Array,
+				    value : function () {
+						return [];
+					},
 				    notify : true
 				  }
 				},
 
 				ajaxResponse : function (data) {
-					console.log('Datasource input', this.category, this.element);
 					this.data = data.detail.response.data;
-					console.log('Datasource output', this.data);
 				}
 			});
 	    })();

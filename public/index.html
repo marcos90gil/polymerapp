@@ -91,19 +91,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <span>All</span>
                 </paper-item>
               </a>
-              <a data-route="shop" href="{{baseUrl}}shop">
+              <a data-route="shop-category" href="{{baseUrl}}shop/1">
                 <paper-item>
                   <iron-icon icon="folder-open"></iron-icon>
                   <span>Category 1</span>
                 </paper-item>
               </a>
-              <a data-route="shop" href="{{baseUrl}}shop">
+              <a data-route="shop-category" href="{{baseUrl}}shop/2">
                 <paper-item>
                   <iron-icon icon="folder-open"></iron-icon>
                   <span>Category 2</span>
                 </paper-item>
               </a>
-              <a data-route="shop" href="{{baseUrl}}shop">
+              <a data-route="shop-category" href="{{baseUrl}}shop/3">
                 <paper-item>
                   <iron-icon icon="folder-open"></iron-icon>
                   <span>Category 3</span>
@@ -175,8 +175,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h1 class="page-title" tabindex="-1">Shop</h1>
                 <p>This is the shop section</p>
-                <my-datasource elements="items" category="all" data="{{items}}"></my-datasource>
-                <my-shop items="[[items]]"></my-shop>
+                <my-datasource data="{{items}}"></my-datasource>
+                <my-shop category="all" items="[[items]]"></my-shop>
+              </paper-material>
+            </section>
+
+            <section data-route="shop-category" tabindex="-1">
+              <paper-material elevation="1">
+                <h1 class="page-title" tabindex="-1">Shop</h1>
+                <p>This is the shop section for category {{params.category}}</p>
+                <my-shop category="{{params.category}}" items="[[items]]"></my-shop>
               </paper-material>
             </section>
 

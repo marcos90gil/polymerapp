@@ -10,7 +10,7 @@ let ItemSchema = new Schema({
 	body : String,
 	image : String,
 	price : Number,
-	categories : {
+	category : {
 		type: String,
         enum : ['1', '2', '3']
     }
