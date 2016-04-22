@@ -1,0 +1,85 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+
+<dom-module id="my-itemCard">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+
+      span {
+        @apply(--paper-font-body1);
+      }
+
+      .item-card-header { @apply(--paper-font-headline); }
+      .item-card-light { color: var(--paper-grey-600); }
+      .item-card-price {
+        float: right;
+        font-size: 15px;
+        vertical-align: middle;
+      }
+      .item-card-reserve { color: var(--google-blue-500); }
+      iron-icon.star {
+        --iron-icon-width: 16px;
+        --iron-icon-height: 16px;
+        color: var(--paper-amber-500);
+      }
+      iron-icon.star:last-of-type { color: var(--paper-grey-500); }
+    </style>
+    
+    <paper-card image="{{image}}">
+      <div class="card-content">
+        <div class="item-card-header">{{title}}
+          <div class="item-card-price item-card-light">
+            <span>{{price}}$</span>
+            <iron-icon icon="maps:local-offer"></iron-icon>
+          </div>
+        </div>
+        <p class="item-card-light">{{body}}</p>
+      </div>
+      <div class="card-actions">
+        <paper-button id="{{id}}" on-tap="buyItem" class="item-card-reserve">BUY</paper-button>
+      </div>
+    </paper-card>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'my-itemCard',
+
+        properties : {
+          title : {
+            type: String,
+          },
+          price : {
+            type: String,
+          },
+          image : {
+            type: String,
+          },
+          body : {
+            type: String,
+          },
+          id : {
+            type: String,
+          }
+        },
+       
+        buyItem : function (e) {
+          var buttonId = e.target.getAttribute('id');
+          console.log('IDE', buttonId);
+          localStorage.setItem(buttonId, buttonId);
+          e.stopPropagation;
+          this.fire('itemCard-buy-tap', {
+            id : buttonId
+          });
+        }
+      });
+    })();
+  </script>
+</dom-module>

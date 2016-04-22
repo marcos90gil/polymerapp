@@ -1,42 +1,32 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
-
 <dom-module id="my-datasource">
+    <template>
+        <iron-ajax auto url="http://localhost:3000/apiv1/items" handle-as="json" on-response="ajaxResponse" debounce-duration="300">
+        </iron-ajax>
+    </template>
+    <script>
+    (function() {
+        'use strict';
 
-	<template>
-		<iron-ajax
-		    auto
-		    url="http://localhost:3000/apiv1/items"
-		    handle-as="json"
-		    on-response="ajaxResponse"
-		    debounce-duration="300">
-		</iron-ajax>
-	</template>
-	
-	<script>
-	    (function() {
-			'use strict';
-			
-			Polymer({
-				is : 'my-datasource',
+        Polymer({
+            is: 'my-datasource',
 
-				properties : {
-				  data : {
-				    type : Array,
-				    value : function () {
-						return [];
-					},
-				    notify : true
-				  }
-				},
+            properties: {
+                data: {
+                    type: Array,
+                    value: function() {
+                        return [];
+                    },
+                    notify: true
+                }
+            },
 
-				ajaxResponse : function (data) {
-					this.data = data.detail.response.data;
-				}
-			});
-	    })();
-  </script>
-
+            ajaxResponse: function(data) {
+                this.data = data.detail.response.data;
+                console.log(data);
+            }
+        });
+    })();
+    </script>
 </dom-module>
-
-

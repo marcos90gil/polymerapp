@@ -20,5 +20,6 @@
     "polymer": "Polymer/polymer#^1.2.0",
     "moment": "^2.12.0",
     "animate.css": "latest",
+    "google-map": "GoogleWebComponents/google-map#^1.1.10"
   }
 }

@@ -1,20 +1,21 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
 
-<dom-module id="my-shop">
+<dom-module id="my-itemCart">
   <template>
     <style>
       :host {
-        display: block;
+        display: inline-block;
       }
 
       span {
         @apply(--paper-font-body1);
       }
-
     </style>
 
-    <template is="dom-repeat" items="{{validItems}}">
+    <template is="dom-repeat" items="{{items}}">
+      <div on-itemCard-buy-tap="onItemTap">
+      </div>
       <my-itemCard 
         title="{{item.title}}"
         body="{{item.body}}"
@@ -31,7 +32,7 @@
       'use strict';
 
       Polymer({
-        is: 'my-shop',
+        is: 'my-itemCart',
 
         properties : {
           items : {
@@ -42,18 +43,11 @@
             value : function () {
               return [];
             }
-          },
-          category : {
-            type : String
           }
         },
 
-        observers : ['whenCategory(category, items)'],
-       
-        whenCategory : function (category, items) {
-          this.validItems = (items || []).filter (function (item) {
-            return  item.category === category  || category === 'all';
-          });
+        onItemTap : function (e, ctx) {
+          
         }
       });
     })();
